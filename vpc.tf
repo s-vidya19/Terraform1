@@ -27,3 +27,29 @@ resource "aws_subnet" "sub2" {
   }
 }
 
+resource "aws_route_table" "first_public_rt" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.first_ig.id
+  }
+  
+  tags = {
+    Name = "first_public_rt"
+  }
+}
+
+resource "aws_route_table_association" "route_first_public" {
+  subnet_id      = aws_subnet.sub2.id
+  route_table_id = aws_route_table.first_public_rt.id
+  
+}
+
+resource "aws_internet_gateway" "first_ig" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "first_ig"
+  }
+}
