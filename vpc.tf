@@ -9,7 +9,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "t-sub1" {
-  vpc_id     = aws_vpc.t-vpc1.id
+  vpc_id     = aws_vpc.main.id
   cidr_block = "10.10.0.0/24"
 
   tags = {
@@ -18,7 +18,7 @@ resource "aws_subnet" "t-sub1" {
 }
 
 resource "aws_subnet" "t-sub2" {
-  vpc_id     = aws_vpc.t-vpc1.id
+  vpc_id     = aws_vpc.main.id
   cidr_block = "10.10.1.0/24"
 
   tags = {
