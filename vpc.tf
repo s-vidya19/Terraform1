@@ -55,10 +55,10 @@ resource "aws_internet_gateway" "first_ig" {
 }
 
 resource "aws_instance" "connect" {
-  ami           = "ami-060d3509162bcc386"
+  ami           = "ami-007855ac798b5175e"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.sub1.id
-  key_name   = "california"
+  key_name   = "siv"
   tags = {
     Name = "first_instance"
   }
