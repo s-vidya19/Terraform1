@@ -58,7 +58,7 @@ resource "aws_instance" "connect" {
   ami           = "ami-014d05e6b24240371"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.sub1.id
-  key_name   = "california"
+  key_name   = "jen-k"
   tags = {
     Name = "first_instance"
   }
